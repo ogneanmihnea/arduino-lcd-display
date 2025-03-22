@@ -1,14 +1,14 @@
 # 🎮 Arduino Mega Joystick & LCD Display Project
 
-This simple project uses an **Arduino Mega 2560**, a **joystick module**, and a **1602 LCD display** to demonstrate basic hardware interaction. On system start, the LCD displays `Press joystick`. When the joystick is pressed, the message changes to display your name: `Dumitru`.
+Acest proiect simplu utilizează un **Arduino Mega 2560**, un **modul joystick** și un **LCD 1602** pentru a demonstra interacțiunea de bază între componente hardware. La pornirea sistemului, LCD-ul afișează mesajul animat `Waiting ⏳`. La prima apăsare a joystick-ului, mesajul dispare. La fiecare apăsare ulterioară, literele cuvântului `Waiting` apar una câte una.
 
 ---
 
 ## 📷 Project Overview
 
-- **Initial Message:** `Press joystick`
-- **After Joystick Press:** `Dumitru`
-- **Goal:** Learn basic usage of joystick input and LCD output.
+- **Mesaj inițial:** `Waiting ⏳` (cu animație pe LCD)
+- **La prima apăsare:** ecranul este șters complet
+- **Ulterior:** fiecare apăsare adaugă următoarea literă din cuvântul `Waiting`
 
 ---
 
@@ -16,29 +16,29 @@ This simple project uses an **Arduino Mega 2560**, a **joystick module**, and a 
 
 - [Arduino Mega 2560](https://docs.arduino.cc/hardware/mega-2560/)
 - [Joystick Module RXGNNC_JM-01](https://ardushop.ro/ro/electronica/1627-modul-joystick-6427854024459.html)
-- [1602 LCD Display (with or without I2C)](https://protosupplies.com/product/lcd1602-16x2-i2c-blue-lcd-display/)
+- [1602 LCD Display (cu sau fără I2C)](https://protosupplies.com/product/lcd1602-16x2-i2c-blue-lcd-display/)
 
 ---
 
 ## 💻 Software Requirements
 
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- (Optional) `LiquidCrystal` library (if using non-I2C LCD)
+- *(opțional)* Biblioteca `LiquidCrystal` dacă folosești un LCD fără interfață I2C
 
 ---
 
 ## 🔌 Wiring & Schematics
 
-### 📌 Joystick to Arduino Mega
+### 📌 Joystick ↔ Arduino Mega
 
 | Joystick Pin | Arduino Mega Pin |
 |--------------|------------------|
 | VCC          | 5V               |
 | GND          | GND              |
 | SW           | Digital Pin 2    |
-| VRx / VRy    | *(not used)*     |
+| VRx / VRy    | *(neutilizați în acest proiect)* |
 
-### 📺 LCD 1602 to Arduino Mega (Non-I2C Example)
+### 📺 LCD 1602 ↔ Arduino Mega (fără I2C)
 
 | LCD Pin | Arduino Mega Pin |
 |---------|------------------|
@@ -51,32 +51,34 @@ This simple project uses an **Arduino Mega 2560**, a **joystick module**, and a 
 | VCC     | 5V               |
 | GND     | GND              |
 
-> 🖍️ **Color code used in schematics:**
-> - 🔴 **Red**: VCC  
-> - ⚫ **Black**: GND  
-> - 🔵 **Blue**: Joystick ↔ Arduino  
-> - 🟡 **Yellow**: LCD ↔ Arduino  
+> 🎨 **Legendă culori în schema electrică:**
+> - 🔴 **Roșu**: VCC  
+> - ⚫ **Negru**: GND  
+> - 🔵 **Albastru**: Joystick ↔ Arduino  
+> - 🟡 **Galben**: LCD ↔ Arduino  
 
 ---
 
 ## ⚙️ Setup and Build
 
-1. **Connect the hardware** as described above.
-2. **Write or upload the Arduino code** via the Arduino IDE.
-3. **Power on the board** via USB or external power.
-4. The LCD will first display `Press joystick`.
-5. Pressing the joystick button will update the screen to show `Dumitru`.
+1. **Conectează toate componentele** conform tabelului de mai sus.
+2. **Încarcă codul Arduino** folosind Arduino IDE.
+3. **Alimentează placa** Arduino prin USB sau sursă externă.
+4. LCD-ul va afișa un mesaj animat: `Waiting ⏳`.
+5. La apăsarea joystick-ului:
+   - Mesajul dispare.
+6. Fiecare apăsare ulterioară:
+   - Adaugă câte o literă din `Waiting` pe ecran.
 
 ---
 
 ## ▶️ Running the Project
 
-1. Connect your Arduino Mega to your computer or external power source.
-2. LCD displays: `Press joystick`
-3. When the joystick button is pressed:
-   - LCD updates to show: `Dumitru`
+1. Pornește Arduino Mega.
+2. LCD afișează: `Waiting ⏳` (cu animație)
+3. Prima apăsare pe joystick:
+   - Ecranul este șters complet.
+4. La fiecare apăsare ulterioară:
+   - Se afișează următoarea literă: `W`, apoi `a`, apoi `i`, etc.
 
 ---
-
-## 📦 Folder Structure
-
